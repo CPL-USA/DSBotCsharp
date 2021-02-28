@@ -25,7 +25,7 @@ namespace DSBotCsharp
 
             DiscordConfiguration config = new DiscordConfiguration
             {
-                Token = "ODE1MDM4MzA1NzI4NDYyODc5.YDmlkg.Iawh0cTbTd6urn3EtAa1H3nwMb8",
+                Token = Encoding.UTF8.GetString(Convert.FromBase64String("T0RFMU1ETTRNekExTnpJNE5EWXlPRGM1LllEbWxrZy4ta1RMUzR3TEJEdWFScHJyVDNuOHBwLWZuMWM=")),
                 TokenType = TokenType.Bot,
                 AutoReconnect = true,
                 MinimumLogLevel=Microsoft.Extensions.Logging.LogLevel.Debug,
