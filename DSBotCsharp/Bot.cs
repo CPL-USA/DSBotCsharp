@@ -6,15 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DSBotCsharp.Commands;
+using DSharpPlus.Interactivity;
 
 namespace DSBotCsharp
 {
    public class Bot
     {
         public DiscordClient Client { get; private set; }
+        
         public CommandsNextExtension commands { get; private set; }
-
-
+  
         public async Task RunAsync()
         {
 
@@ -33,15 +35,21 @@ namespace DSBotCsharp
 
             Client.Ready += onClientReady;
 
+
+
             CommandsNextConfiguration commandsConfig = new CommandsNextConfiguration
             {
                 StringPrefixes = new string[] { "!" },
                 EnableDms=false,
                 EnableMentionPrefix = true,
+                DmHelp=true,
+
 
             };
 
             commands = Client.UseCommandsNext(commandsConfig);
+
+            commands.RegisterCommands<FCommands>();
 
             await Client.ConnectAsync();
 
