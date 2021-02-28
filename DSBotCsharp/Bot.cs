@@ -14,7 +14,6 @@ namespace DSBotCsharp
         public DiscordClient Client { get; private set; }
         public CommandsNextExtension commands { get; private set; }
 
-  
 
         public async Task RunAsync()
         {
@@ -24,7 +23,7 @@ namespace DSBotCsharp
 
             DiscordConfiguration config = new DiscordConfiguration
             {
-                Token = "ODE1MDM4MzA1NzI4NDYyODc5.YDmlkg.BdmbzzpNoOocbnsu9hbtm9YrrGk",
+                Token = "ODE1MDM4MzA1NzI4NDYyODc5.YDmlkg.Iawh0cTbTd6urn3EtAa1H3nwMb8",
                 TokenType = TokenType.Bot,
                 AutoReconnect = true,
                 MinimumLogLevel=Microsoft.Extensions.Logging.LogLevel.Debug,
