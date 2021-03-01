@@ -24,7 +24,14 @@ namespace DSBotCsharp.Commands
 
         public async Task Shaman(CommandContext text)
         {
-            await text.RespondAsync("**Ля, Кабан** "+" https://media.giphy.com/media/mgmqtuvSDog9zT9zfW/giphy.gif");
+                DiscordEmbedBuilder embed = new DiscordEmbedBuilder
+                {
+                    Description = "**A fucking boar!**",
+                    ImageUrl = "https://media.giphy.com/media/mgmqtuvSDog9zT9zfW/giphy.gif",
+
+                };
+            await text.RespondAsync(embed);
+           
         }
 
         [Command("punch")]
@@ -36,16 +43,72 @@ namespace DSBotCsharp.Commands
                 DiscordEmbedBuilder Embed = new DiscordEmbedBuilder
                 {
                     Title = $"{punch.User.Username} ударил {member.Username}",
+
                     ImageUrl = CommandsHelper.GetRandomPunchURL(),
+
+                    Color = DiscordColor.Red,
+
                 };
 
 
                 await punch.RespondAsync(Embed);
             }
-            
+            else
+            {
+                await punch.RespondAsync("```YAML\nУкажите пользователя!```");
+            }
 
         }
 
+        [Command("clear")]
 
+        public async Task Clear(CommandContext clear, int count=1 )
+        {
+            await CommandsHelper.ClearChat(clear.Channel, count);
+            await clear.RespondAsync($"```Удалено {count} сообщений.```");
+        }
+
+        [Command("avatar")]
+        public async Task ExecuteCommandAvatar(CommandContext context, DiscordMember member = null)
+        {
+            if (context.Channel.Name == context.Channel.Name)
+            {
+                DiscordEmbedBuilder embedBuilder = null;
+                if (member != null)
+                {
+                    embedBuilder = new DiscordEmbedBuilder
+                    {
+                        Title = "Avatar",
+                        ImageUrl = member.AvatarUrl,
+
+                        Author = new DiscordEmbedBuilder.EmbedAuthor
+                        {
+                            IconUrl = member.AvatarUrl,
+                            Name = member.Username,
+                        },
+                        Color = DiscordColor.CornflowerBlue,
+                    };
+                }
+                else
+                {
+                    embedBuilder = new DiscordEmbedBuilder
+                    {
+                        Title = "Avatar",
+                        ImageUrl = context.User.AvatarUrl,
+
+                        Author = new DiscordEmbedBuilder.EmbedAuthor
+                        {
+                            IconUrl = context.User.AvatarUrl,
+                            Name = context.User.Username,
+                        },
+                        Color = DiscordColor.CornflowerBlue,
+                    };
+                }
+
+                await context.RespondAsync(embed: embedBuilder).ConfigureAwait(false);
+            }
+        }
     }
+
+
 }

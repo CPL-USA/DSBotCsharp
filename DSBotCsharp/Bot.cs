@@ -8,15 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using DSBotCsharp.Commands;
 using DSharpPlus.Interactivity;
+using DSharpPlus.Entities;
 
 namespace DSBotCsharp
 {
    public class Bot
     {
+
         public DiscordClient Client { get; private set; }
         
         public CommandsNextExtension commands { get; private set; }
-  
+
+
+
+
+
+
+
+
         public async Task RunAsync()
         {
 
@@ -39,7 +48,7 @@ namespace DSBotCsharp
 
             CommandsNextConfiguration commandsConfig = new CommandsNextConfiguration
             {
-                StringPrefixes = new string[] { "!" },
+                StringPrefixes = new string[] { "." },
                 EnableDms=false,
                 EnableMentionPrefix = true,
                 DmHelp=true,
