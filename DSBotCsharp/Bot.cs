@@ -20,18 +20,8 @@ namespace DSBotCsharp
         public CommandsNextExtension commands { get; private set; }
 
 
-
-
-
-
-
-
         public async Task RunAsync()
         {
-
-
-
-
             DiscordConfiguration config = new DiscordConfiguration
             {
                 Token = Encoding.UTF8.GetString(Convert.FromBase64String("T0RFMU1ETTRNekExTnpJNE5EWXlPRGM1LllEbWxrZy4ta1RMUzR3TEJEdWFScHJyVDNuOHBwLWZuMWM=")),
@@ -41,10 +31,7 @@ namespace DSBotCsharp
             };
 
             Client = new DiscordClient(config);
-
             Client.Ready += onClientReady;
-
-
 
             CommandsNextConfiguration commandsConfig = new CommandsNextConfiguration
             {
@@ -52,8 +39,6 @@ namespace DSBotCsharp
                 EnableDms=false,
                 EnableMentionPrefix = true,
                 DmHelp=true,
-
-
             };
 
             commands = Client.UseCommandsNext(commandsConfig);

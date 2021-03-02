@@ -18,27 +18,19 @@ namespace DSBotCsharp.Commands
             await ctx.RespondAsync($"Ping: **{ctx.Client.Ping}**" );
         }
 
-
-
         [Command("shaman")]
-
         public async Task Shaman(CommandContext text)
         {
                 DiscordEmbedBuilder embed = new DiscordEmbedBuilder
                 {
-
-                    
-
                     Description = "**A fucking boar!**",
                     ImageUrl = "https://media.giphy.com/media/mgmqtuvSDog9zT9zfW/giphy.gif",
                     Color = DiscordColor.Black,
                 };
             await text.RespondAsync(embed);
-           
         }
 
         [Command("punch")]
-
         public async Task Punch(CommandContext punch, DiscordMember member = null)
         {
             if (member!=null)
@@ -46,14 +38,9 @@ namespace DSBotCsharp.Commands
                 DiscordEmbedBuilder Embed = new DiscordEmbedBuilder
                 {
                     Title = $"{punch.User.Username} ударил {member.Username}",
-
                     ImageUrl = CommandsHelper.GetRandomPunchURL(),
-
                     Color = DiscordColor.Red,
-
                 };
-
-
                 await punch.RespondAsync(Embed);
             }
             else
