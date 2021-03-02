@@ -10,7 +10,6 @@ namespace DSBotCsharp.Addons
     public class CommandsHelper
     {
 
-
         public static string[] punch =
         {
             "https://media.giphy.com/media/l0HlLFVBqUVwxSOzu/giphy.gif",

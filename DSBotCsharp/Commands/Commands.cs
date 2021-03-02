@@ -26,9 +26,12 @@ namespace DSBotCsharp.Commands
         {
                 DiscordEmbedBuilder embed = new DiscordEmbedBuilder
                 {
+
+                    
+
                     Description = "**A fucking boar!**",
                     ImageUrl = "https://media.giphy.com/media/mgmqtuvSDog9zT9zfW/giphy.gif",
-
+                    Color = DiscordColor.Black,
                 };
             await text.RespondAsync(embed);
            
