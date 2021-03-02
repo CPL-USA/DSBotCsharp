@@ -60,7 +60,6 @@ namespace DSBotCsharp.Commands
             {
                 await punch.RespondAsync("```YAML\nУкажите пользователя!```");
             }
-
         }
 
         [Command("clear")]
