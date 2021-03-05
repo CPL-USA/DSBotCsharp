@@ -15,7 +15,19 @@ namespace DSBotCsharp.Commands
         [Command("ping")]
         public async Task Ping(CommandContext ctx)
         {
-            await ctx.RespondAsync($"Ping: **{ctx.Client.Ping}**" );
+            DiscordEmbedBuilder embedBuilder = new DiscordEmbedBuilder
+            {
+                Title = $"```PING:{ctx.Client.Ping}```",
+                Author = new DiscordEmbedBuilder.EmbedAuthor
+                {
+                    IconUrl = ctx.User.AvatarUrl,
+                    Name = ctx.User.Username,
+                    
+                },
+                Color = DiscordColor.Yellow,
+
+            };
+            await ctx.RespondAsync(embedBuilder);
         }
 
         [Command("shaman")]
@@ -50,11 +62,12 @@ namespace DSBotCsharp.Commands
         }
 
         [Command("clear")]
-
+   
         public async Task Clear(CommandContext clear, int count=1 )
         {
+
             await CommandsHelper.ClearChat(clear.Channel, count);
-            await clear.RespondAsync($"```Удалено {count} сообщений.```");
+            await clear.RespondAsync($"```{clear.User.Username} удалил {count} сообщений.```");
         }
 
         [Command("avatar")]

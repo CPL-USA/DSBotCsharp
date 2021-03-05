@@ -1,4 +1,5 @@
-﻿using DSharpPlus.Entities;
+﻿using DSharpPlus.CommandsNext;
+using DSharpPlus.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,5 +32,7 @@ namespace DSBotCsharp.Addons
         {
             await discordChannel.DeleteMessagesAsync(discordChannel.GetMessagesAsync(count).Result);
         }
+
+      
     }
 }
